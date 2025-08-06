@@ -1,4 +1,6 @@
 
+import java.util.Scanner;
+
 public class Sandbox {
 
     public static void main(String[] args) {
@@ -10,6 +12,23 @@ public class Sandbox {
         //System.out.print("hello\n");
         //System.out.println("...and the universe");
         //System.out.println("hello\b");//\b is similar to backspace i.e. o/p is hell
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Give a number:");
+
+        try {
+            // We "try" to run this dangerous code.
+            int number = Integer.valueOf(scanner.nextLine());
+            System.out.println("Good job! Your number is: " + number);
+
+        } catch (Exception e) {
+            // If the code in the 'try' block crashes, we land here.
+            System.out.println("Error: That was not a valid number!");
+        }
+
+        // The program continues running instead of crashing.
+        System.out.println("The program continues...");
+        printHollowSquare(5);
+        printInvertedNumberTriangle(5);
         printNumberTriangle(4);
         printFloydsTriangle(3);
         printAlphabetTriangle(3);
@@ -22,6 +41,29 @@ public class Sandbox {
             num++;
         }
         System.out.println();
+    }
+
+    public static void printHollowSquare(int size) {
+        // Outer loop for the rows (from 1 to size)
+        for (int i = 1; i <= size; i++) {
+            // Inner loop for the columns (from 1 to size)
+            for (int j = 1; j <= size; j++) {
+                // Check if we are on any of the four borders
+                if (i == 1 || i == size || j == 1 || j == size) {
+                    System.out.print("*");
+                } else {
+                    System.out.print(" ");
+                }
+            }
+            // After the inner loop finishes, print a new line to move to the next row
+            System.out.println();
+        }
+    }
+
+    public static void printInvertedNumberTriangle(int size) {
+        for (int i = size; i > 0; i--) {
+            printNumbers(i);
+        }
     }
 
     public static void printNumberTriangle(int height) {

@@ -13,10 +13,12 @@ public class IoobProgram {
         lines.add("give up most of his life for physics and research of many hypothesis. But, this is why");
         lines.add("you and I have even heard of the quantum theory and atomic structures. Bohr came");
         lines.add("up with his quantum theory while studying...");
-
+        // The below for loop prints each line of the ArrayList one line at a time
         for (String line : lines) {
             System.out.println(line);
         }
+        //The below code always gives Index Out of Bound error because indexing start from 0
+        System.out.println(lines.get(6));
 
     }
 }
