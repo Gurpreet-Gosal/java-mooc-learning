@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class IndexOfSmallest {
-
+    
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -15,28 +15,28 @@ public class IndexOfSmallest {
             if (input == 9999) {
                 break;
             }
-
+            
             list.add(input);
         }
-
+        
         System.out.println("");
         // after that, the program prints the smallest number
         int smallest = list.get(0);
-
         for (int i = 0; i < list.size(); i++) {
             int number = list.get(i);
             if (smallest > number) {
                 smallest = number;
             }
         }
+        
         System.out.println("Smallest number: " + smallest);
 
         // --- Step 2: Find all indices of the smallest number ---
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i) == smallest) {
-                System.out.println("Found at index: " + i);
+        for (int j = 0; j < list.size(); j++) {
+            if (smallest == list.get(j)) {
+                System.out.println("Found at index: " + j);
             }
         }
-
+        
     }
 }
