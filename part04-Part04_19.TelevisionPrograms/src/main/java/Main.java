@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -8,6 +9,24 @@ public class Main {
 
         ArrayList<TelevisionProgram> programs = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Name: ");
+            String name = scanner.nextLine();
+            if (name.isEmpty()) {
+                break;
+            }
+            System.out.println("Duration: ");
+            int duration = Integer.valueOf(scanner.nextLine());
+            TelevisionProgram newPgm = new TelevisionProgram(name, duration);
+            programs.add(newPgm);
+        }
+        System.out.println("Program's maximum duration? ");
+        int time = Integer.valueOf(scanner.nextLine());
+        for (TelevisionProgram pgm : programs) {
+            if (pgm.getDuration() <= time) {
+                System.out.println(pgm.toString());
+            }
+        }
 
     }
 }
